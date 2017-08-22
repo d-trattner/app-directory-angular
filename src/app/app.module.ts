@@ -4,26 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { DirectoryModule } from 'app/directory/directory.module';
 import { AppComponent } from './app.component';
-import { DirectoryComponent } from "app/directory/directory.component";
 import { SxcAngular, DnnHttpProvider, DnnAngular, ContentResourceFactory } from "@2sic.com/dnn-sxc-angular";
 
-const appRoutes = [
-  {
-    path: 'filter/:department/:letter',
-    component: DirectoryComponent
-  },
-  {
-    path: '',
-    redirectTo: 'filter/alle/alle',
-    pathMatch: 'full'
-  },
-  {
-    path: 'search/:needle',
-    component: DirectoryComponent
-  }
-] 
+import { ApiResourceFactory } from "./2sxc/sxc-api.service";
 
 @NgModule({
   declarations: [
@@ -32,15 +16,14 @@ const appRoutes = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    DirectoryModule,
-    RouterModule.forRoot(appRoutes)
+    HttpModule
   ],
   providers: [
     SxcAngular,
     DnnAngular,
     DnnHttpProvider,
     ContentResourceFactory,
+    ApiResourceFactory
   ],
   bootstrap: [AppComponent]
 })

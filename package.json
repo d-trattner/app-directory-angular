@@ -1,5 +1,5 @@
 {
-  "name": "app-directory",
+  "name": "app-angular-api",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -9,6 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "buildprod": "ng build --prod --aot --output-hashing=none",
     "watch": "ng build --watch --prod --aot --output-hashing=none"
   },
   "private": true,
